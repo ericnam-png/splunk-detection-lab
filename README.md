@@ -1,4 +1,4 @@
-# SOC Homelab — Attack Simulation & Detection
+# SOC Homelab — Attack Simulation & Detection (Splunk + Sysmon)
 
 > **Part 2 of the SOC Homelab series.**  
 > For environment setup (VirtualBox, Windows 11, Kali Linux, Sysmon, Splunk), see 👉 [soc-homelab-setup](https://github.com/ericnam-png/soc-homelab-setup)
@@ -18,7 +18,7 @@ This project simulates a realistic attack chain — from initial access through 
 ## Attack & Detection Workflow
 
 ### 1. User Creation
-A new local user account is created on the Windows victim machine to simulate failed login attampt on splunk.
+A new local user account is created on the Windows victim machine to simulate failed login log on splunk.
 
 - **Tool:** `net user`
 - **Detection:** Splunk query on Event ID `4720` (A user account was created)
@@ -125,6 +125,8 @@ index=* source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11
 ---
 
 ## Attack Chain Summary
+### objective
+  To simulate a realistic attack chain and demonstrate how each stage can be detected and investigated using SIEM.
 
 ```
 [Kali] Create payload (msfvenom)
