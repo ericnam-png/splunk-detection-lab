@@ -21,7 +21,15 @@ This project simulates a realistic attack chain — from initial access through 
 A new local user account is created on the Windows victim machine to simulate failed login log on splunk.
 
 - **Tool:** `net user`
+<p>
+  <img src="soc-detection-lab/user_creation.png" width="700"/>
+</p>
+
 - **Detection:** Splunk query on Event ID `4720` (A user account was created)
+<p>
+  <img src="soc-detection-lab/sys_user_creation.png" width="500"/>
+  <img src="soc-detection-lab/splunk_user_creation.png" width="500"/>
+</p>
 
 ```spl
 index=* EventCode=4720
@@ -33,7 +41,14 @@ index=* EventCode=4720
 Multiple failed authentication attempts are made against the Windows machine from Kali Linux to simulate a brute-force attack.
 
 - **Tool:** manual RDP login attempts
+<p>
+  <img src="soc-detection-lab/failed_login.png" width="700"/>
+</p>
+
 - **Detection:** Splunk query on Event ID `4625` (An account failed to log on)
+<p>
+  <img src="soc-detection-lab/failed_login_detection.png" width="700"/>
+</p>
 
 ```spl
 index=* EventCode=4625
