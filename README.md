@@ -153,8 +153,8 @@ index=* source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11
 | table _time, host, TargetFilename, Image
 ```
 <p>
-  <img src="soc-detection-lab/window_binary_running.png" width="500"/>
-  <img src="soc-detection-lab/reverse_shell_active.png" width="500"/>
+  <img src="soc-detection-lab/network_connection_event.png" width="500"/>
+  <img src="soc-detection-lab/process_creation.png" width="500"/>
 </p>
 
 ---
