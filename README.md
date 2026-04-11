@@ -91,7 +91,7 @@ nc -lvnp 4444
 On the victim (PowerShell or CMD):
 
 ```cmd
-C:\Users\Public\index.pdf.exe
+C:\Users\Public\invoice.pdf.exe
 ```
 
 A reverse shell session is now active on the attacker machine.
@@ -103,9 +103,9 @@ Sysmon captures the process creation, network connection, and file events trigge
 
 **Detect suspicious process creation (Sysmon Event ID 1):**
 ```spl
-index=* source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
-| search Image="*malware.exe" OR ParentImage="*powershell.exe"
-| table _time, host, Image, ParentImage, CommandLine, User
+index=* EventCode=1
+| search CommandLine="*invoice.pdf.exe" OR ParentImage="*powershell.exe"
+| table _time, Image, ParentImage, CommandLine
 ```
 
 **Detect outbound network connections (Sysmon Event ID 3):**
