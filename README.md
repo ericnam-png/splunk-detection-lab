@@ -125,8 +125,6 @@ index=* source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11
 ---
 
 ## Attack Chain Summary
-### objective
-  To simulate a realistic attack chain and demonstrate how each stage can be detected and investigated using SIEM.
 
 ```
 [Kali] Create payload (msfvenom)
