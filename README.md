@@ -46,9 +46,6 @@ Multiple failed authentication attempts are made against the Windows machine fro
 </p>
 
 - **Detection:** Splunk query on Event ID `4625` (An account failed to log on)
-<p>
-  <img src="soc-detection-lab/failed_login_detection.png" width="700"/>
-</p>
 
 ```spl
 index=* EventCode=4625
@@ -60,11 +57,14 @@ index=* EventCode=4625
 Review and triage the authentication alerts generated from steps 1 and 2.
 
 - Correlate `4720` (account creation) with `4625` (failed logins) to identify suspicious sequences
-- Build a simple alert rule for accounts with >5 failed logins within a short window
+- Would be great to build a simple alert rule for accounts with >5 failed logins within a short window
+
+<p>
+  <img src="soc-detection-lab/failed_login_detection.png" width="700"/>
+</p>
 
 ```spl
 index=* EventCode=4625 earliest=-15m
-| stats count by Account_Name, src_ip
 | where count >= 5
 ```
 
