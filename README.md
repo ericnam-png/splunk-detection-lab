@@ -187,21 +187,16 @@ index=* source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11
 
 ---
 
-## Screenshots
-
-
----
-
 ## Prerequisites
 
 - Completed lab setup from [soc-homelab-setup](https://github.com/ericnam-png/soc-homelab-setup)
 - Sysmon running on Windows 11 with logging configured
 - Splunk ingesting Windows Security and Sysmon logs
-- Kali Linux with `msfvenom` and `netcat` available
+- Kali Linux with `msfvenom` and `python3` available
 
 ---
 
-## ⚠️ Legal Disclaimer
+## Legal Disclaimer
 
 This project is strictly for educational purposes in an isolated, self-owned lab environment.
 
