@@ -18,7 +18,8 @@ This project simulates a realistic attack chain — from initial access through 
 ## Attack & Detection Workflow
 
 ### 1. User Creation
-A new local user account is created on the Windows victim machine to simulate failed login log on splunk.
+A new local user account is created on the Windows victim machine to generate account creation activity for detection in Splunk.
+
 
 - **Tool:** `net user`
 <p>
@@ -143,7 +144,7 @@ index=* source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=3
 **Detect file creation events (Sysmon Event ID 11):**
 ```spl
 index=* source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=11
-| search TargetFilename="*malware.exe"
+| search TargetFilename="*invoice.pdf.exe"
 | table _time, host, TargetFilename, Image
 ```
 <p>
