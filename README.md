@@ -1,7 +1,7 @@
-# SOC Homelab — Attack Simulation & Detection (Splunk + Sysmon)
+# SOC HomeLab — Attack Simulation & Detection (Splunk + Sysmon)
 
-> **Part 2 of the SOC Homelab series.**  
-> For environment setup (VirtualBox, Windows 11, Kali Linux, Sysmon, Splunk), see 👉 [soc-homelab-setup](https://github.com/ericnam-png/soc-homelab-setup)
+> **Part 2 of the SOC HomeLab series.**  
+> For environment setup (VirtualBox, Windows 11, Kali Linux, Sysmon, Splunk), see 👉 [soc-homelab-setup(Part 1)](https://github.com/ericnam-png/soc-homelab-setup)
 
 ## Summary
 This project simulates a realistic attack chain — from initial access through malware execution — and demonstrates how each stage is detected and investigated in Splunk.
